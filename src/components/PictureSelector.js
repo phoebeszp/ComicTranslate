@@ -1,36 +1,39 @@
-
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import * as Actions from '../reducer/Actions.js';
 import ImageLoader from '../manager/ImageLoader';
+import { Button } from 'react-bootstrap';
 
 var imageResource, INITIAL_SELECTED_VALUE = "0";
 
-function PictureSelector({onSelectChange, onScale, onSelectColor, onShetch}) {
-    return (
-        <div>Switch Picture:
-            <select defaultValue={INITIAL_SELECTED_VALUE} onChange={onSelectChange}>
-                <option value="0">A</option>
-                <option value="1">E</option>
-                <option value="2">F</option>
-            </select>
-            <input type='Button' value='+' onClick={onScale}/>
-            <label htmlFor="">color: </label>
-            <input type="color"  onChange={onSelectColor} />
-            <input type='Button' value='Draw' onClick={onShetch}/>
-        </div>
-    );
+export class PictureSelector extends React.Component{
+    static propTypes = {
+        onSelectChange: PropTypes.func.isRequired,
+        onScale: PropTypes.func.isRequired,
+        onSelectColor: PropTypes.func.isRequired,
+        onShetch: PropTypes.func.isRequired
+    };
+    render(){
+        const {onSelectChange, onScale, onSelectColor, onShetch} = this.props;
+        return (
+            <div>Switch Picture:
+                <select defaultValue={INITIAL_SELECTED_VALUE} onChange={onSelectChange}>
+                    <option value="0">A</option>
+                    <option value="1">E</option>
+                    <option value="2">F</option>
+                </select>
+                <input type='Button' value='+' onClick={onScale}/>
+                <label htmlFor="">color: </label>
+                <input type="color"  onChange={onSelectColor} />
+                <Button variant="primary" onClick={onShetch}>Draw</Button>
+            </div>
+        );
+    }
 }
 
-PictureSelector.propTypes = {
-    onSelectChange: PropTypes.func.isRequired,
-    onScale: PropTypes.func.isRequired,
-    onSelectColor: PropTypes.func.isRequired,
-    onShetch: PropTypes.func.isRequired
-};
-
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
 
     ImageLoader.init((param)=>{
         imageResource = param;

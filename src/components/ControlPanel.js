@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 
 import styles from '../css/ControlPanel.css';
 
-import Magnifier from './Magnifier';
 import PictureSelector from './PictureSelector';
 import PictureDisplayer from './PictureDisplayer';
 

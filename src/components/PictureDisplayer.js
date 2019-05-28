@@ -1,9 +1,6 @@
 
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
-
-import * as Actions from '../reducer/Actions.js';
-
 import styles from '../css/ControlPanel.css';
 import DragManager from '../manager/DragManager';
 import ShetchManager from '../manager/ShetchManager';
@@ -95,7 +92,7 @@ export default class PictureDisplayer extends React.Component {
         const height = this.state.screenHeight; 
         const selectedImage = this.state.selectedImage;
         let actualWidth= this.state.actualWidth; 
-        let picStyle = {backgroundImage: this.state.selectedImage && this.state.selectedImage.path,
+        let picStyle = {backgroundImage: selectedImage && selectedImage.path,
             transform: `translate(${this.state.translateX}px, ${this.state.translateY}px) scale(${this.state.scaleInt})`,
             width: `${actualWidth}px`
         };
