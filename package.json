@@ -42,7 +42,7 @@
     "file-loader": "^0.10.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.x",
-    "jsdom": "^9.x",
+    "jsdom": "^16.x",
     "mocha": "^3.x",
     "postcss-loader": "^0.9.1",
     "react-addons-test-utils": "^15.x",
