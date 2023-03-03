@@ -43,7 +43,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.x",
     "jsdom": "^9.x",
-    "mocha": "^3.x",
+    "mocha": "^10.x",
     "postcss-loader": "^0.9.1",
     "react-addons-test-utils": "^15.x",
     "react-hot-loader": "^3.0.0-beta.6",
